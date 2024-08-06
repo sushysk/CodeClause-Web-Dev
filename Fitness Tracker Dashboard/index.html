@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fitness Tracker Dashboard</h1>
+        </header>
+        <section class="stats">
+            <div class="card">
+                <h2>Steps</h2>
+                <p id="steps">0</p>
+            </div>
+            <div class="card">
+                <h2>Calories</h2>
+                <p id="calories">0</p>
+            </div>
+            <div class="card">
+                <h2>Distance</h2>
+                <p id="distance">0 km</p>
+            </div>
+        </section>
+        <section class="input-form">
+            <h2>Log Activity</h2>
+            <form id="activity-form">
+                <label for="steps-input">Steps:</label>
+                <input type="number" id="steps-input" required>
+                <label for="calories-input">Calories:</label>
+                <input type="number" id="calories-input" required>
+                <label for="distance-input">Distance (km):</label>
+                <input type="number" id="distance-input" required>
+                <button type="submit">Add Activity</button>
+            </form>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
