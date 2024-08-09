@@ -7,37 +7,42 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="dashboard">
         <header>
             <h1>Fitness Tracker Dashboard</h1>
         </header>
-        <section class="stats">
-            <div class="card">
-                <h2>Steps</h2>
-                <p id="steps">0</p>
+
+        <div class="container">
+            <!-- Activity Log Section -->
+            <div class="activity-log">
+                <h2>Activity Log</h2>
+                <form id="activity-form">
+                    <input type="text" id="activity-name" placeholder="Activity Name" required>
+                    <input type="number" id="activity-duration" placeholder="Duration (min)" required>
+                    <button type="submit">Add Activity</button>
+                </form>
+                <ul id="activity-list"></ul>
             </div>
-            <div class="card">
-                <h2>Calories</h2>
-                <p id="calories">0</p>
+
+            <!-- Progress Chart Section -->
+            <div class="progress-chart">
+                <h2>Progress Chart</h2>
+                <canvas id="progressCanvas"></canvas>
             </div>
-            <div class="card">
-                <h2>Distance</h2>
-                <p id="distance">0 km</p>
+
+            <!-- Workout Recommendations Section -->
+            <div class="workout-recommendations">
+                <h2>Workout Recommendations</h2>
+                <p>Based on your activities, here are some personalized recommendations:</p>
+                <ul id="recommendation-list">
+                    <li>30 mins of Running</li>
+                    <li>20 mins of Cycling</li>
+                    <li>15 mins of Yoga</li>
+                </ul>
             </div>
-        </section>
-        <section class="input-form">
-            <h2>Log Activity</h2>
-            <form id="activity-form">
-                <label for="steps-input">Steps:</label>
-                <input type="number" id="steps-input" required>
-                <label for="calories-input">Calories:</label>
-                <input type="number" id="calories-input" required>
-                <label for="distance-input">Distance (km):</label>
-                <input type="number" id="distance-input" required>
-                <button type="submit">Add Activity</button>
-            </form>
-        </section>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
