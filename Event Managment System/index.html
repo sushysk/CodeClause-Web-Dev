@@ -3,35 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Management System</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Event Management System</h1>
-        </header>
-        <main>
-            <section class="create-event">
-                <h2>Create New Event</h2>
-                <form id="event-form">
-                    <label for="event-name">Event Name:</label>
-                    <input type="text" id="event-name" required>
-                    <label for="event-date">Date:</label>
-                    <input type="date" id="event-date" required>
-                    <label for="event-description">Description:</label>
-                    <textarea id="event-description" required></textarea>
-                    <button type="submit">Add Event</button>
+    <h1>Dashboard</h1>
+
+    <h2>Create Event</h2>
+    <form method="POST" action="">
+        <input type="text" name="title" placeholder="Event Title" required>
+        <textarea name="description" placeholder="Event Description" required></textarea>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <input type="text" name="venue" placeholder="Venue" required>
+        <button type="submit">Create Event</button>
+    </form>
+
+    <h2>Your Events</h2>
+    <ul>
+        <?php while ($event = $events->fetch_assoc()): ?>
+            <li>
+                <?php echo $event['title']; ?> - <?php echo $event['date']; ?>
+                <form action="purchase_ticket.php" method="POST">
+                    <input type="hidden" name="event_id" value="<?php echo $event['id']; ?>">
+                    <button type="submit">Purchase Ticket</button>
                 </form>
-            </section>
-            <section class="event-list">
-                <h2>Upcoming Events</h2>
-                <ul id="events">
-                    <!-- Events will be dynamically added here -->
-                </ul>
-            </section>
-        </main>
-    </div>
-    <script src="script.js"></script>
+            </li>
+        <?php endwhile; ?>
+    </ul>
 </body>
 </html>
